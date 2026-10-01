@@ -39,8 +39,15 @@
         //Método Virtual (Polimorfismo ns classes filhas)
         public virtual void Depositar(decimal valor)
         {
-
+            if (valor >= 0)
+            {
+                Saldo += valor;
+                ExtratoTransacoes.Add($"Depósito: +R$ {valor:f2} | Saldo Atual: {Saldo:f2}");
+            }
         }
+        //Método abstrato obriga suas classes filhas a implementares suas próprias regras
+
+        public abstract bool Sacar(decimal valor);
 
 
 
